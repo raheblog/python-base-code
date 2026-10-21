@@ -1,6 +1,11 @@
 import requests
+import bs4
+
+
 r = requests.get("https://raheblog.ir")
 r.status_code
+
+data_web = r.text
 
 if r.status_code == 200:
     print(f"{True} is a host(200)  :) ")
@@ -8,5 +13,9 @@ if r.status_code == 200:
 else:
     print(f"{False} host is not 200 :( ")
 
-print(f"this is a URL: {r.url}")
+print(f"this is a URL: \n {r.url}")
 #print(f"this is header: {r.headers}")
+#print(r.text)
+sakhtar = bs4.BeautifulSoup(data_web)
+
+print(f"this is a title: \n {sakhtar.select('title')}")
