@@ -1,0 +1,12 @@
+import requests
+r = requests.get("https://raheblog.ir")
+r.status_code
+
+if r.status_code == 200:
+    print(f"{True} is a host(200)  :) ")
+
+else:
+    print(f"{False} host is not 200 :( ")
+
+print(f"this is a URL: {r.url}")
+#print(f"this is header: {r.headers}")
